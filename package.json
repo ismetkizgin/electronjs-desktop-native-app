@@ -1,0 +1,25 @@
+{
+  "name": "example-electron-app",
+  "description": "An example app, built with Electron.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "İsmet Kizgin",
+    "email": "info@ismetkizgin.com.tr",
+    "url": "https://ismetkizgin.com"
+  },
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "start": "electron .",
+    "bundle:x64": "electron-packager . --platform linux --arch x64 --out dist/",
+    "deb:x64": "electron-installer-debian --src dist/example-electron-app-linux-x64/ --arch amd64 --config config.json",
+    "build": "npm run clean && npm run bundle:x64 && npm run deb:x64"
+  },
+  "devDependencies": {
+    "electron": "^13.1.5",
+    "electron-installer-debian": "^3.1.0",
+    "electron-packager": "^15.2.0"
+  }
+}
